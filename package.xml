@@ -13,12 +13,7 @@
 
   <author email="nickh@robots.ox.ac.uk">Nick Hawes</author>
 
-  <exec_depend>rospy</exec_depend>
-  <exec_depend>smach</exec_depend>
-  <exec_depend>smach_ros</exec_depend>
-  <exec_depend>mbf_msgs</exec_depend>  
-  <exec_depend>geometry_msgs</exec_depend>  
-  <exec_depend>nav_msgs</exec_depend>  
+  <exec_depend>mbf_costmap_nav</exec_depend>  
   <exec_depend>scitos_2d_navigation</exec_depend>  
   <buildtool_depend>catkin</buildtool_depend>
 

@@ -32,4 +32,7 @@
 		<arg name="with_mux" value="$(arg with_mux)"/>
     </include>
 
+    <!-- translate from move_base messages and handle rviz goals -->
+    <node name="move_base_legacy_relay" pkg="mbf_costmap_nav" type="move_base_legacy_relay.py" output="screen"/>
+
 </launch>

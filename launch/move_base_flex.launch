@@ -3,8 +3,6 @@
 	<arg name="user" default="" />
 	<arg name="with_mux" default="false" />
  	
- 	<arg name="smach" default="true" />
-
 	<machine name="$(arg machine)" address="$(arg machine)" env-loader="$(optenv ROS_ENV_LOADER )" user="$(arg user)" default="true" />
 
   	<node pkg="mbf_costmap_nav" type="mbf_costmap_nav" respawn="false" name="move_base_flex" output="screen"  unless="$(arg with_mux)">
@@ -40,9 +38,5 @@
 		<rosparam file="$(find scitos_2d_navigation)/scitos_move_base_params/local_costmap_params.yaml" command="load" />
 		<rosparam file="$(find scitos_2d_navigation)/scitos_move_base_params/global_costmap_params.yaml" command="load" />
 	</node>
-
-
-  	<!-- SMACH Navigation State Machine -->
-	<node if="$(arg smach)" pkg="scitos_2d_mbf" type="mbf_state_machine.py" name="mbf_state_machine" output="screen"/>
 
 </launch>
