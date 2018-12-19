@@ -1,0 +1,12 @@
+planners:
+  - name: 'NavfnROS'
+    type: 'navfn/NavfnROS'
+planner_frequency: 0.5
+
+# copied from scitos_2d_navigation - not sure if they do anything here
+controller_frequency: 10.0
+controller_patience: 15.0
+
+
+# coped from Ceres config, not sure what it does
+# lethal_obstacle: 250

@@ -1,0 +1,4 @@
+controllers:
+   # Config for DWAPlannerROS defined in the scitos_2d_navigation files
+   - name: 'DWAPlannerROS'
+     type: 'dwa_local_planner/DWAPlannerROS'

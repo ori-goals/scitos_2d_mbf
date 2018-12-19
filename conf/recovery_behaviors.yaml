@@ -1,0 +1,13 @@
+recovery_behaviors:
+  - name: 'conservative_reset'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+  - name: 'aggressive_reset'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+
+conservative_reset:
+  layer_names: ["obstacle_layer"]
+  reset_distance: 2.0
+
+aggressive_reset:
+  layer_names: ["obstacle_layer"]
+  reset_distance: 0.0

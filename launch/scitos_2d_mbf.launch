@@ -1,0 +1,35 @@
+<launch>
+    <arg name="machine" default="localhost" />
+    <arg name="user" default="" />
+    <arg name="map"/>
+    <arg name="with_no_go_map" default="false"/>
+	<arg name="with_mux" default="false" />
+    <arg name="no_go_map"/>
+
+    <machine name="$(arg machine)" address="$(arg machine)" env-loader="$(optenv ROS_ENV_LOADER )" user="$(arg user)" default="true"/>
+
+    <!-- lanch map server -->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map)"/>
+
+    <!-- lanch no-go map server -->
+    <node name="no_go_map_server" pkg="map_server" type="map_server" args="$(arg no_go_map)" if="$(arg with_no_go_map)">
+        <remap from="/map" to="/no_go_map"/>
+    </node>
+    <node name="no_go_map_server" pkg="map_server" type="map_server" args="$(arg map)" unless="$(arg with_no_go_map)">
+        <remap from="/map" to="/no_go_map"/>
+    </node>
+
+    <!-- launch AMCL -->
+    <include file="$(find scitos_2d_navigation)/launch/amcl.launch">
+        <arg name="machine"  value="$(arg machine)"/>
+        <arg name="user"  value="$(arg user)"/>
+    </include>
+
+    <!-- launch move base -->
+    <include file="$(find scitos_2d_mbf)/launch/move_base_flex.launch">
+        <arg name="machine"  value="$(arg machine)"/>
+        <arg name="user"  value="$(arg user)"/>
+		<arg name="with_mux" value="$(arg with_mux)"/>
+    </include>
+
+</launch>
