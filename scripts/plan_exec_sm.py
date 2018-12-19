@@ -40,7 +40,7 @@ class PlanExecStateMachine(smach.Concurrence):
             outcome_cb=self.plan_exec_sm_outcome_cb)
         with self:
             for index, planner in enumerate(self._planners):
-                planner_sm = PlannerStateMachine(index, planner, 'eband')
+                planner_sm = PlannerStateMachine(index, planner, 'dwa')
                 smach.Concurrence.add(planner.upper(), planner_sm)
 
     def plan_exec_sm_child_termination_cb(self, outcome_map):

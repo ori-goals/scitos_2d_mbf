@@ -1,5 +1,5 @@
 planners:
-  - name: 'NavfnROS'
+  - name: 'navfn'
     type: 'navfn/NavfnROS'
 planner_frequency: 0.5
 
